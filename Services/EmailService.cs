@@ -11,10 +11,10 @@ namespace services.email
             _context = context;
         }
         public async Task<List<EmailModel>> GetAllEmailAsync() {
-            return await _context.EmailModels.ToListAsync();
+            return await _context.Emails.ToListAsync();
         }
         public async Task<EmailModel> GetEmailByIdAsync(int id) {
-            var getEmail = await _context.EmailModels.FindAsync(id);
+            var getEmail = await _context.Emails.FindAsync(id);
             if (getEmail == null) throw new KeyNotFoundException($"Email with Id {id} not found.");
             return getEmail;
         }
@@ -24,14 +24,14 @@ namespace services.email
             return email;
         }
         public async Task<EmailModel> UpdateEmailAsync(EmailModel email) {
-            _context.EmailModels.Update(email);
+            _context.Emails.Update(email);
             await _context.SaveChangesAsync();
             return email;
         }
         public async Task<bool> DeleteEmailAsync(int id) {
-            var getEmail = await _context.EmailModels.FindAsync(id);
+            var getEmail = await _context.Emails.FindAsync(id);
             if (getEmail == null) return false;
-            _context.EmailModels.Remove(getEmail);
+            _context.Emails.Remove(getEmail);
             await _context.SaveChangesAsync();
             return true;
         }

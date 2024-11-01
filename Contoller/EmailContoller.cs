@@ -4,7 +4,7 @@ using services.email;
 
 namespace contoller.email
 {
-    [Route("/api/[contoller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class EmailController: ControllerBase {
         private readonly EmailServices _emailServices;
