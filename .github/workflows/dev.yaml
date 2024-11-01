@@ -1,0 +1,12 @@
+name: Abiy Home Care API
+run-name: updated by ${{github.actor}}
+
+on: push
+jobs:
+  TEST-ABIY-API:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Test Jobs on ${{github.event_name}} event"
+      - name: checkout
+        uses: actions/checkout@v4
+      - run: echo "repository checkout to the workflow ${{github.repository}}"
